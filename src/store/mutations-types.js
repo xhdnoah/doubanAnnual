@@ -1,0 +1,8 @@
+export const getMovieAnnual = 'get-movie-annual'
+export const setMovieAnnual = 'set-movie-annual'
+export const getMovieWidgetInfos = 'get-movie-widget-infos'
+export const setMovieWidgetInfos = 'set-movie-widget-infos'
+export const setY = 'set-y'
+export const changeStatus = 'change-status'
+export const changeView = 'change-view'
+export const error = 'error'
