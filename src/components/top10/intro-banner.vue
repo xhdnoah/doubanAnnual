@@ -12,6 +12,7 @@
         <div
           class="content"
           :style="{backgroundColor: payload.background_color}"
+          style="color: white;"
         >
           <h1>
             <div>{{ payload.title.split('|')[0]}}</div>
@@ -32,7 +33,7 @@
       <div class="content-container">
         <div
           class="content"
-          style="background-color: rgba(0,0,0,0.5);"
+          style="background-color: rgba(0,0,0,0.5); color: white;"
         >
           <div class="payload">
             <h2><a

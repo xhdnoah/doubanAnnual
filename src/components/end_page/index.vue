@@ -10,7 +10,6 @@
             <h1>The End</h1>
           </header>
           <p>{{payload.content}}</p>
-          <epilogue></epilogue>
         </div>
       </div>
     </div>

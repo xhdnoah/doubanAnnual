@@ -29,6 +29,11 @@ import dialogue from '@/components/dialogue'
 import playlists from '@/components/playlists'
 import person from '@/components/person'
 import the_fallen from '@/components/theFallen'
+import missing_subjects from '@/components/missing_subjects'
+import end_page from '@/components/end_page'
+import top_subjects from '@/components/top_subjects'
+import error from '@/components/error'
+
 export default {
   name: 'mainContainer',
   data() {
@@ -50,16 +55,14 @@ export default {
   components: {
     start_page,
     top10,
-    // top5,
     dialogue,
     playlists,
     the_fallen,
-    person
-    // excerpt,
-    // events,
-    // lyric,
-    // end_page,
-    // error
+    person,
+    top_subjects,
+    missing_subjects,
+    end_page,
+    error
   }
 }
 </script>
