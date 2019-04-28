@@ -5,8 +5,11 @@
   >
     <div data-reactroot>
       <div class="app-container">
-        <movie-header v-if="subjectsLength"></movie-header>
-        <router-view v-if="subjectsLength"></router-view>
+        <movie-header v-if="subjectsLength > 0"></movie-header>
+        <router-view
+          v-if="subjectsLength > 0"
+          :style="{transform: `translate3d(0px, ${Y}%, 0px)`}"
+        ></router-view>
         <error v-if="Error"></error>
       </div>
     </div>
@@ -23,6 +26,9 @@ export default {
   computed: {
     subjectsLength() {
       return this.$store.getters[`${this.$route.params.kind}SubjectsLength`]
+    },
+    Y() {
+      return this.$store.state.Y
     },
     Error() {
       return this.$store.state.Error

@@ -12,6 +12,7 @@ const state = {
 		pv: 0,
 		payload: {},
 		widget_infos: [],
+		// widgets
 		subjects: [],
 		subjects_length: 0
 	},
