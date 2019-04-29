@@ -22,14 +22,14 @@ router.beforeEach((to, from, next) => {
 		})
 		// 优化切页速度，可以一次获取前后几项的数据
 		function fn() {
-			store.dispatch(`get-${params.kind}-widget-infos`, {
+			store.dispatch(`get-movie-widget-infos`, {
 				nth: parseInt(params.nth)
 			}).then(() => {
 				next()
 			})
 		}
 		if (!store.getters[`${params.kind}WidgetsLength`]) {
-			store.dispatch(`get-${params.kind}-annual`).then(() => {
+			store.dispatch(`get-movie-annual`).then(() => {
 				fn()
 			})
 		} else {

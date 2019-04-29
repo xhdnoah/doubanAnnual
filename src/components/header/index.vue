@@ -98,7 +98,36 @@ export default {
     return {
       isPlaying: true,
       isShowed: true,
-      isOpened: false
+      isOpened: false,
+      calculate(nth) {
+        setTimeout(function() {
+          nth = parseInt(nth)
+          let doubanlist = self.$refs.doubanlist
+          if (
+            doubanlist.querySelectorAll('li')[nth].offsetTop >
+            doubanlist.offsetHeight + doubanlist.scrollTop
+          ) {
+            doubanlist.scrollTop += doubanlist.offsetHeight
+            if (
+              doubanlist.querySelectorAll('li')[nth].offsetTop >
+              doubanlist.offsetHeight + doubanlist.scrollTop
+            ) {
+              self.calculate(nth)
+            }
+          } else if (
+            doubanlist.querySelectorAll('li')[nth].offsetTop <
+            doubanlist.scrollTop
+          ) {
+            doubanlist.scrollTop -= doubanlist.offsetHeight
+            if (
+              doubanlist.querySelectorAll('li')[nth].offsetTop <
+              doubanlist.scrollTop
+            ) {
+              self.calculate(nth)
+            }
+          }
+        }, 1)
+      }
     }
   },
   computed: {
@@ -155,6 +184,22 @@ export default {
       if (!!this.background_musics) {
         const audio = this.$refs.audio
         return s ? audio.play() : audio.pause()
+      }
+    },
+    isOpened(s) {
+      const self = this
+      if (s) {
+        self.calculate(self.$route.params.nth)
+      }
+    },
+    $route(to, from) {
+      const self = this
+      if (self.isOpened) {
+        self.calculate(to.params.nth)
+        self.isOpened = false
+      }
+      if (to.params.kind != from.params.kind) {
+        self.isPlaying = !self.isPhone
       }
     }
   },

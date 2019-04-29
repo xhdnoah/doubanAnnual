@@ -3,13 +3,7 @@
     class="people-container"
     data-scroll="limited"
   >
-    <ul class="people-list"><svg data-def="true">
-        <def>
-          <clipPath id="clipper">
-            <polygon points="22 0, 86 0, 86 122, 0 122, 0 22"></polygon>
-          </clipPath>
-        </def>
-      </svg>
+    <ul class="people-list">
       <li
         v-for="person in people"
         :key="person.id"

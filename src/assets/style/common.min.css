@@ -1290,8 +1290,8 @@ body {
 }
 
 .dialogue-container .lines-container {
-	color: #000;
-	background: #fff;
+	color: #fff;
+	background: #000;
 	padding-bottom: 80px;
 	padding-top: 3rem;
 	width: 100%
@@ -1571,7 +1571,7 @@ body {
 
 	.events-container .list-container .events-list li .event-image,
 	.fallen-container .people-container .people-list li .avatar {
-		width: 7.2rem
+		width: 9 rem
 	}
 }
 
@@ -1670,7 +1670,8 @@ body {
 	margin-bottom: -2.5rem
 }
 
-.excerpt-container .content-container {
+.excerpt-container,
+.content-container {
 	width: 100%;
 	height: 100%;
 	display: -webkit-box;
@@ -2010,7 +2011,10 @@ body {
 	}
 }
 
-.top-subjects-content {
+.dialogue-content,
+.top-subjects-content,
+.faller-container,
+.fallen-holder {
 	position: relative;
 	height: 100%;
 }
@@ -2088,7 +2092,7 @@ body {
 	}
 }
 
-.month-zh {
+.month {
 	display: inline-block;
 	vertical-align: top;
 	font-size: 18px;
@@ -2096,7 +2100,8 @@ body {
 }
 
 @media only screen and (max-width:414px) {
-	.month-zh {
+
+	.month {
 		text-align: left;
 		width: 60px;
 		font-size: 14px;
@@ -2104,13 +2109,15 @@ body {
 	}
 }
 
-.month-zh .month-en {
+.month-en {
 	font-size: 13px;
 	color: hsla(0, 0%, 100%, .6)
 }
 
 @media only screen and (max-width:414px) {
-	.month-zh .month-en {
+
+	.month,
+	.month-en {
 		font-size: 11px;
 		display: inline-block
 	}

@@ -32,7 +32,7 @@ export default {
     },
     video() {
       const { kind } = this.$route.params
-      return require(`@/assets/images/${kind}.${this.isPhone ? 'jpg' : 'mp4'}`)
+      return require(`@/assets/images/movie.${this.isPhone ? 'jpg' : 'mp4'}`)
     },
     titleImg() {
       const titleImg = this.isPhone

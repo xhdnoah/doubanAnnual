@@ -17,6 +17,7 @@ const state = {
 		subjects_length: 0
 	},
 	Y: 0,
+	// resolve 记录视图变化的状态
 	resolve: true,
 	isPhone: document.body.clientWidth <= 414 ? true : false,
 	Error: false

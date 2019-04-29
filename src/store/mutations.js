@@ -30,6 +30,7 @@ export default {
 	}) {
 		state.Y = y
 	},
+	// Scroll status
 	[changeStatus](state, {
 		status
 	}) {

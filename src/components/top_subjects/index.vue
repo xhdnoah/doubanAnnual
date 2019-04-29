@@ -12,7 +12,7 @@
                 v-for="(subject, index) in subjects"
                 :key="subject.id"
               >
-                <div class="month-zh">{{ index + 1 <
+                <div class="month">{{ index + 1 <
                     10
                     ? '0'
                     +
@@ -23,42 +23,43 @@
                     index
                     +
                     1}}
-                    月</div>
+                    月
                     <div
-                    class="mouth_en"
+                    class="month-en"
                   >
-                    {{month.index}}
+                    {{month[index+1]}}
                 </div>
-                <a
-                  :href="subject.url"
-                  class="subject"
-                  target="_blank"
-                  :title="subject.title"
-                >
-                  <div class="top-subjects-img">
-                    <svg>
-                      <image
-                        :xlink:href="subject.cover"
-                        x="0"
-                        y="0"
-                        width="100%"
-                        height="100%"
-                        preserveAspectRatio="xMidYMid slice"
-                      ></image>
-                    </svg>
-                  </div>
-                  <div>
-                    <span class="top-subjects-title">
-                      {{subject.title}}
-                    </span>
-                    <span class="top-subjects-rating">{{subject.rating.toFixed(1)}}</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
           </div>
+          <a
+            :href="subject.url"
+            class="subject"
+            target="_blank"
+            :title="subject.title"
+          >
+            <div class="top-subjects-img">
+              <svg>
+                <image
+                  :xlink:href="subject.cover"
+                  x="0"
+                  y="0"
+                  width="100%"
+                  height="100%"
+                  preserveAspectRatio="xMidYMid slice"
+                ></image>
+              </svg>
+            </div>
+            <div>
+              <span class="top-subjects-title">
+                {{subject.title}}
+              </span>
+              <span class="top-subjects-rating">{{subject.rating.toFixed(1)}}</span>
+            </div>
+          </a>
+          </li>
+          </ul>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </template>
