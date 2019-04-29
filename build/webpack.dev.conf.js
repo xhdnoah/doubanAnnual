@@ -5,7 +5,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+// var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 // hot-reload
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {

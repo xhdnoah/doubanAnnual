@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import './assets/style/common.min.css'
+import './assets/style/common.css'
 import TWEEN from '@tweenjs/tween.js'
 import movieHeader from './components/header'
 import error from './components/error'

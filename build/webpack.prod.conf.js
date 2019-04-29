@@ -8,13 +8,14 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
 	module: {
 		rules: utils.styleLoaders({
-			sourceMap: config.build.productionSourceMap ? '#source-map' : false,
+			sourceMap: config.build.productionSourceMap,
 			extract: true
 		})
 	},
@@ -28,14 +29,14 @@ var webpackConfig = merge(baseWebpackConfig, {
 		new webpack.DefinePlugin({
 			'process.env': env
 		}),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			},
-			sourceMap: true
-		}),
+		// new UglifyJSPlugin(),
 		new ExtractTextPlugin({
 			filename: utils.assetsPath('css/[name].[contenthash].css')
+		}),
+		new OptimizeCSSPlugin({
+			cssProcessorOptions: {
+				safe: true
+			}
 		}),
 		new HtmlWebpackPlugin({
 			filename: config.build.index,
@@ -66,7 +67,12 @@ var webpackConfig = merge(baseWebpackConfig, {
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'manifest',
 			chunks: ['vendor']
-		})
+		}),
+		new CopyWebpackPlugin([{
+			from: path.resolve(__dirname, '../static'),
+			to: config.build.assetsSubDirectory,
+			ignore: ['.*']
+		}])
 	]
 })
 
@@ -86,5 +92,8 @@ if (config.build.productionGzip) {
 		})
 	)
 }
-
+if (config.build.bundleAnalyzerReport) {
+	var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+	webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+}
 module.exports = webpackConfig

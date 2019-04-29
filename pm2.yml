@@ -1,8 +1,0 @@
-apps:
-  - script: ./server/server.js
-    name:
-    node_args: --harmony
-    env_production:
-      NODE_ENV: production
-      HOST: localhost
-      PORT: 8080

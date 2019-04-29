@@ -10,7 +10,8 @@ module.exports = {
 		assetsPublicPath: './',
 		productionSourceMap: true,
 		productionGzip: false,
-		productionGzipExtension: ['js', 'css']
+		productionGzipExtension: ['js', 'css'],
+		bundleAnalyzerReport: process.env.npm_config_report
 	},
 	dev: {
 		env: require('./dev.env'),
